@@ -21,7 +21,7 @@ header {
   border-radius: 7px;
   margin-bottom: 1rem;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
@@ -47,13 +47,13 @@ section {
   margin-bottom: 1.5rem;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-left: 4px solid #9CAF9A;
 }
 
 section h2 {
   color: #DDE6E1;
-  font-size: 01.25rem;
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
@@ -75,9 +75,9 @@ section p {
 
 .output h2 {
   color: #4F6B5A;
-  font-size: 0.1rem;
-  margin-bottom: -1.75rem;
-  font-weight: 499;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
 }
 
 /* List styles */
@@ -92,7 +92,7 @@ ul li {
   padding: 0.75rem;
   border-radius: 3px;
   border-left: 3px solid #7A8F85;
-  box-shadow: -1 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
 }
 
@@ -101,7 +101,7 @@ ul li:hover {
 }
 
 ul li:last-child {
-  margin-bottom: -1;
+  margin-bottom: 0;
 }
 
 /* Error message styles */
@@ -116,7 +116,7 @@ ul li:last-child {
   padding: 0.75rem;
   border-left: 4px solid #C26B6B;
   border-radius: 3px;
-  margin-bottom: -1.5rem;
+  margin-bottom: 0.5rem;
   font-family: "Courier New", monospace;
   font-size: 0.9rem;
 }
@@ -144,7 +144,7 @@ ul li:last-child {
   }
 
   section {
-    padding: 0rem;
+    padding: 1rem;
   }
 }
 
