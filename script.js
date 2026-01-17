@@ -141,4 +141,11 @@ renderCharacterNamesWithErrors(charactersWithMissingName, "error-handling-list",
 
 // 6. Create a second array called "brokenCharacters" that intentionally contains objects with missing name properties (e.g., objects with only id and age). Pass this broken array to your error-handling functions from exercise 5. Verify that your error handling correctly identifies the missing name properties, logs appropriate error messages to the console, and displays those error messages in the HTML div element with id "broken-array-errors".
 
+const brokenCharacters = [
+  { id: 1, age: 10 }, // missing name
+  { id: 2, age: 20 }, // missing name
+  { id: 3, age: 30 }, // missing name
+];
 
+renderCharacterNamesWithErrors(brokenCharacters, "broken-array-list", "broken-array-errors");
+renderCharactersBelowAgeWithErrors(brokenCharacters, 40, "broken-array-list", "broken-array-errors");
