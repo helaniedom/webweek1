@@ -42,3 +42,33 @@ under40.forEach((character) => {
   youngCharactersList.appendChild(li);
 });
 
+// 3. Build a reusable function that accepts an array of character objects as a parameter. Inside the function, iterate through the array and extract each character's name property. Dynamically generate <li> elements for each name and append them to a target HTML list element. Call this function with the characters array and render the results in the unordered list with id "function-list".
+
+function renderCharacterNames(array, targetListId) {
+  const targetList = document.getElementById(targetListId);
+
+  array.forEach((character) => {
+    const li = document.createElement("li");
+    li.textContent = character.name;
+    targetList.appendChild(li);
+  });
+}
+
+renderCharacterNames(characters, "function-list");
+
+// 4. Write a function that accepts two parameters: an array of character objects and a numeric age threshold. Inside the function, filter the array to include only characters whose age is below the threshold value. For each filtered character, create an <li> element with their name and append it to the target list. Call this function and render the results in the unordered list with id "age-filter-list".
+
+function renderCharactersBelowAge(array, ageThreshold, targetListId) {
+  const targetList = document.getElementById(targetListId);
+
+  const filtered = array.filter((character) => character.age < ageThreshold);
+
+  filtered.forEach((character) => {
+    const li = document.createElement("li");
+    li.textContent = character.name;
+    targetList.appendChild(li);
+  });
+}
+
+renderCharactersBelowAge(characters, 40, "age-filter-list");
+
