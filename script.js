@@ -86,6 +86,10 @@ function showError(message, errorContainerId) {
 
 function renderCharacterNamesWithErrors(array, targetListId, errorContainerId) {
   const targetList = document.getElementById(targetListId);
+  const errorContainer = document.getElementById(errorContainerId);
+
+  targetList.innerHTML = "";
+  errorContainer.innerHTML = "";
 
   array.forEach((character) => {
     if (!character.name) {
@@ -101,43 +105,3 @@ function renderCharacterNamesWithErrors(array, targetListId, errorContainerId) {
   });
 }
 
-function renderCharactersBelowAgeWithErrors(array, ageThreshold, targetListId, errorContainerId) {
-  const targetList = document.getElementById(targetListId);
-
-  array
-    .filter((character) => character.age < ageThreshold)
-    .forEach((character) => {
-      if (!character.name) {
-        const msg = `Error: Character with id ${character.id ?? "unknown"} is missing a "name" property.`;
-        console.error(msg, character);
-        showError(msg, errorContainerId);
-        return;
-      }
-
-      const li = document.createElement("li");
-      li.textContent = character.name;
-      targetList.appendChild(li);
-    });
-}
-
-const charactersWithMissingName = [
-  ...characters,
-  { id: 999, age: 30 },
-];
-
-renderCharacterNamesWithErrors(charactersWithMissingName, "error-handling-list", "error-messages");
-
-
-// 6. Create a second array called "brokenCharacters" that intentionally contains objects with missing name properties (e.g., objects with only id and age). Pass this broken array to your error-handling functions from exercise 5. Verify that your error handling correctly identifies the missing name properties, logs appropriate error messages to the console, and displays those error messages in the HTML div element with id "broken-array-errors".
-
-const brokenCharacters = [
-  { id: 11, age: 50 },                // missing name
-  { id: 12, age: 22 },                // missing name
-  { id: 13, name: "Ahsoka Tano", age: 17 }, // valid name
-  { id: 14 },                         // missing name + age (will trigger name error)
-];
-
-
-renderCharacterNamesWithErrors(brokenCharacters, "broken-array-list", "broken-array-errors"); 
-
-renderCharactersBelowAgeWithErrors(brokenCharacters, 40, "broken-array-list", "broken-array-errors");
