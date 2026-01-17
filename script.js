@@ -105,3 +105,40 @@ function renderCharacterNamesWithErrors(array, targetListId, errorContainerId) {
   });
 }
 
+function renderCharactersBelowAgeWithErrors(array, ageThreshold, targetListId, errorContainerId) {
+  const targetList = document.getElementById(targetListId);
+  const errorContainer = document.getElementById(errorContainerId);
+
+  targetList.innerHTML = "";
+  errorContainer.innerHTML = "";
+
+  array
+    .filter((character) => character.age < ageThreshold)
+    .forEach((character) => {
+      if (!character.name) {
+        const msg = `Error: Character with id ${character.id ?? "unknown"} is missing a "name" property.`;
+        console.error(msg, character);
+        showError(msg, errorContainerId);
+        return;
+      }
+
+      const li = document.createElement("li");
+      li.textContent = character.name;
+      targetList.appendChild(li);
+    });
+}
+
+const charactersWithMissingName = [
+  { id: 1, name: "Luke Skywalker", age: 23 },
+  { id: 2, name: "Leia Organa", age: 23 },
+  { id: 3, age: 50 },
+  { id: 6, age: 60 },
+  { id: 7, age: 70 },
+];
+
+renderCharacterNamesWithErrors(charactersWithMissingName, "error-handling-list", "error-messages");
+
+
+// 6. Create a second array called "brokenCharacters" that intentionally contains objects with missing name properties (e.g., objects with only id and age). Pass this broken array to your error-handling functions from exercise 5. Verify that your error handling correctly identifies the missing name properties, logs appropriate error messages to the console, and displays those error messages in the HTML div element with id "broken-array-errors".
+
+
